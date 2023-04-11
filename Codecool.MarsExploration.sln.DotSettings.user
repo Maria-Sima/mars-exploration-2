@@ -1,15 +1,25 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=53d76c1c_002D7ddf_002D4dcd_002D9d7c_002Da9e42a0d640e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1 #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5eefdddd_002Dedd9_002D49e0_002Dab14_002De5e546cf510c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ConfigurationValidatorTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.ConfigurationValidatorTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=92e8aada_002Df7ff_002D48f9_002D8560_002D13ae00c353a4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1 #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb7640ac_002Dc50a_002D44b3_002Dbd29_002De2303d452172/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest.Test1&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dae8b353_002D45aa_002D4971_002Dbe54_002D9e655aa5680c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1 #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dae8b353_002D45aa_002D4971_002Dbe54_002D9e655aa5680c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1 #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;

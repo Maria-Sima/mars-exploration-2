@@ -4,8 +4,8 @@ public class DimensionCalculator : IDimensionCalculator
 {
     public int CalculateDimension(int size, int dimensionGrowth)
     {
-        int dimension = 0;
-        int numberOfAvailableBoxes = 0;
+        var dimension = 0;
+        var numberOfAvailableBoxes = 0;
         while (numberOfAvailableBoxes < size)
         {
             dimension++;

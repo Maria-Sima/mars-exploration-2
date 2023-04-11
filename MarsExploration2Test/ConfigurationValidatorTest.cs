@@ -1,8 +1,6 @@
-using System.Security.AccessControl;
 using Codecool.MarsExploration.MapExplorer.Configuration;
 using Codecool.MarsExploration.MapExplorer.MapLoader;
 using Codecool.MarsExploration.MapGenerator.Calculators.Model;
-using Codecool.MarsExploration.MapGenerator.MapElements.Model;
 using NUnit.Framework;
 
 namespace MarsExploration2Test;
@@ -22,7 +20,8 @@ public class ConfigurationValidatorTest
         IMapLoader mapLoader = new MapLoader();
         _validator = new ConfigurationValidator(mapLoader);
     }
-[Test]
+
+    [Test]
     public void Test2()
     {
         var configuration = new Configuration
@@ -43,7 +42,8 @@ public class ConfigurationValidatorTest
     {
         var configuration = new Configuration
         {
-            filePath = @"D:\ProiecteCodecool\OOP C# Projects\mars-exploration-2-csharp-Maria-Sima\Codecool.MarsExploration.MapExplorer\Resources\exploration-0.map",
+            filePath =
+                @"D:\ProiecteCodecool\OOP C# Projects\mars-exploration-2-csharp-Maria-Sima\Codecool.MarsExploration.MapExplorer\Resources\exploration-0.map",
             LandingCoordinate = new Coordinate(3, 15),
             ResourceSymbols = new List<string> { "%", "*", "&" },
             TimeoutSteps = 100
@@ -58,7 +58,8 @@ public class ConfigurationValidatorTest
     {
         var configuration = new Configuration
         {
-            filePath = @"D:\ProiecteCodecool\OOP C# Projects\mars-exploration-2-csharp-Maria-Sima\Codecool.MarsExploration.MapExplorer\Resources\exploration-0.map",
+            filePath =
+                @"D:\ProiecteCodecool\OOP C# Projects\mars-exploration-2-csharp-Maria-Sima\Codecool.MarsExploration.MapExplorer\Resources\exploration-0.map",
             LandingCoordinate = new Coordinate(0, 0),
             ResourceSymbols = new List<string> { "%", "*", "&" },
             TimeoutSteps = 100

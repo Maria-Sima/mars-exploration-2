@@ -5,8 +5,8 @@ namespace Codecool.MarsExploration.MapGenerator.MapElements.Service.Builder;
 
 public class MapElementBuilder : IMapElementBuilder
 {
-    private readonly IDimensionCalculator _dimensionCalculator;
     private static readonly Random Random = new();
+    private readonly IDimensionCalculator _dimensionCalculator;
 
     public MapElementBuilder(IDimensionCalculator dimensionCalculator)
     {
@@ -34,8 +34,8 @@ public class MapElementBuilder : IMapElementBuilder
     {
         var dimension = _dimensionCalculator.CalculateDimension(size, dimensionGrowth);
 
-        int cnt = size;
-        string?[,] representation = new string?[dimension, dimension];
+        var cnt = size;
+        var representation = new string?[dimension, dimension];
 
         while (cnt > 0)
         {

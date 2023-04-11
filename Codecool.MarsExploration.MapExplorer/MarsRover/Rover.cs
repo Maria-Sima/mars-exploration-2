@@ -4,9 +4,9 @@ namespace Codecool.MarsExploration.MapExplorer.MarsRover;
 
 public class Rover
 {
-	public string Id { get; init; } = "rover-1";
-	public Coordinate CurrentPosition { get; set; }
-	public int Sight { get; init; } = 2;
-	public Dictionary<string, List<Coordinate>> MineralCoordinates { get; set; }
-	public Dictionary<string, List<Coordinate>> WaterCoordinates { get; set; }
+    public string Id { get; init; } = "rover-1";
+    public Coordinate CurrentPosition { get; set; }
+    public int Sight { get; init; } = 2;
+    public List<Coordinate> MineralCoordinates { get; set; }
+    public List<Coordinate> WaterCoordinates { get; set; }
 }

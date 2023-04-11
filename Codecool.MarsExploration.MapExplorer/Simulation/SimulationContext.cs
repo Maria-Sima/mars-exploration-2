@@ -5,13 +5,13 @@ using Codecool.MarsExploration.MapGenerator.MapElements.Model;
 
 namespace Codecool.MarsExploration.MapExplorer.Simulation;
 
-public record SimulationContext()
+public record SimulationContext
 {
-    public int Steps;
-    public int TimeOutSteps;
+    public ExplorationOutcome ExplorationOutcome;
+    public Map map;
+    public List<string> Resource;
     public Rover rover;
     public Coordinate SpaceshipCoordinate;
-    public Map map;
-    public List<String> Resource;
-    public ExplorationOutcome ExplorationOutcome;
-};
+    public int Steps;
+    public int TimeOutSteps;
+}

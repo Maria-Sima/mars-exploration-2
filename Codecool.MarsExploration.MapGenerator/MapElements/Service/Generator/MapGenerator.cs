@@ -10,13 +10,12 @@ namespace Codecool.MarsExploration.MapGenerator.MapElements.Service.Generator;
 public class MapGenerator : IMapGenerator
 {
     private static readonly Random Random = new();
-    private static Map EmptyMap => new(new string[,] { }, false);
-
-    private readonly IMapConfigurationValidator _mapConfigValidator;
-    private readonly IMapElementsGenerator _mapElementsGenerator;
     private readonly ICoordinateCalculator _coordinateCalculator;
     private readonly IDimensionCalculator _dimensionCalculator;
+
+    private readonly IMapConfigurationValidator _mapConfigValidator;
     private readonly IMapElementPlacer _mapElementPlacer;
+    private readonly IMapElementsGenerator _mapElementsGenerator;
 
     public MapGenerator(
         IMapConfigurationValidator mapConfigValidator,
@@ -32,15 +31,14 @@ public class MapGenerator : IMapGenerator
         _mapElementPlacer = mapElementPlacer;
     }
 
+    private static Map EmptyMap => new(new string[,] { });
+
     public Map Generate(MapConfiguration mapConfig)
     {
-        if (!_mapConfigValidator.Validate(mapConfig))
-        {
-            return EmptyMap;
-        }
+        if (!_mapConfigValidator.Validate(mapConfig)) return EmptyMap;
 
         var dimension = _dimensionCalculator.CalculateDimension(mapConfig.MapSize, 0);
-        string?[,] map = new string?[dimension, dimension];
+        var map = new string?[dimension, dimension];
 
         var elements =
             new Stack<MapElement>(_mapElementsGenerator.CreateAll(mapConfig).OrderBy(e => e.Dimension));
@@ -50,13 +48,9 @@ public class MapGenerator : IMapGenerator
             var element = elements.Pop();
             var coord = GetTargetCoordinate(element, map);
             if (_mapElementPlacer.CanPlaceElement(element, map, coord))
-            {
                 _mapElementPlacer.PlaceElement(element, map, coord);
-            }
             else
-            {
                 elements.Push(element);
-            }
         }
 
         return new Map(map, true);
@@ -79,16 +73,10 @@ public class MapGenerator : IMapGenerator
 
     private static IEnumerable<Coordinate> GetPreferredLocations(string preferredLocationSymbol, string?[,] map)
     {
-        for (int i = 0; i < map.GetLength(0); i++)
-        {
-            for (int j = 0; j < map.GetLength(1); j++)
-            {
-                if (map[i, j] == preferredLocationSymbol)
-                {
-                    yield return new Coordinate(i, j);
-                }
-            }
-        }
+        for (var i = 0; i < map.GetLength(0); i++)
+        for (var j = 0; j < map.GetLength(1); j++)
+            if (map[i, j] == preferredLocationSymbol)
+                yield return new Coordinate(i, j);
     }
 
     private IEnumerable<Coordinate> GetEmptyAdjacent(IEnumerable<Coordinate> coordinates, string?[,] map)

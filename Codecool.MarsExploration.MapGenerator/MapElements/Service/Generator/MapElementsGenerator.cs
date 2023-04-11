@@ -22,16 +22,12 @@ public class MapElementsGenerator : IMapElementsGenerator
     private IEnumerable<MapElement> CreateElements(MapElementConfiguration mapElementConfig)
     {
         foreach (var ets in mapElementConfig.ElementsToSizes)
-        {
-            for (int i = 0; i < ets.ElementCount; i++)
-            {
+            for (var i = 0; i < ets.ElementCount; i++)
                 yield return _mapElementBuilder.Build(
                     ets.Size,
                     mapElementConfig.Symbol,
                     mapElementConfig.Name,
                     mapElementConfig.DimensionGrowth,
                     mapElementConfig.PreferredLocationSymbol);
-            }
-        }
     }
 }

@@ -11,13 +11,10 @@ public record Map(string?[,] Representation, bool SuccessfullyGenerated = false)
     {
         var sb = new StringBuilder();
 
-        for (int i = 0; i < arr.GetLength(0); i++)
+        for (var i = 0; i < arr.GetLength(0); i++)
         {
-            string s = "";
-            for (int j = 0; j < arr.GetLength(1); j++)
-            {
-                s += arr[i, j] == null ? " " : arr[i, j];
-            }
+            var s = "";
+            for (var j = 0; j < arr.GetLength(1); j++) s += arr[i, j] == null ? " " : arr[i, j];
 
             sb.AppendLine(s);
         }
@@ -33,7 +30,7 @@ public record Map(string?[,] Representation, bool SuccessfullyGenerated = false)
     public bool IsEmpty(Coordinate coordinate)
     {
         return string.IsNullOrEmpty(Representation[coordinate.X, coordinate.Y])
-            || Representation[coordinate.X, coordinate.Y] == " ";
+               || Representation[coordinate.X, coordinate.Y] == " ";
     }
 
     public override string ToString()

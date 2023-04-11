@@ -12,6 +12,13 @@ public class MapElementPlacer : IMapElementPlacer
             : CanPlaceMultiDimensionalElement(element, map, coordinate);
     }
 
+    public void PlaceElement(MapElement element, string?[,] map, Coordinate coordinate)
+    {
+        for (var i = 0; i < element.Representation.GetLength(0); i++)
+        for (var j = 0; j < element.Representation.GetLength(1); j++)
+            map[coordinate.X + i, coordinate.Y + j] = element.Representation[i, j];
+    }
+
     private static bool CanPlaceOneDimensionalElement(string?[,] map, Coordinate coordinate)
     {
         return coordinate.X >= 0
@@ -23,15 +30,9 @@ public class MapElementPlacer : IMapElementPlacer
 
     private static bool CanPlaceMultiDimensionalElement(MapElement element, string?[,] map, Coordinate coordinate)
     {
-        if (coordinate.X + element.Dimension >= map.GetLength(0) || coordinate.X < 0)
-        {
-            return false;
-        }
+        if (coordinate.X + element.Dimension >= map.GetLength(0) || coordinate.X < 0) return false;
 
-        if (coordinate.Y + element.Dimension >= map.GetLength(1) || coordinate.Y < 0)
-        {
-            return false;
-        }
+        if (coordinate.Y + element.Dimension >= map.GetLength(1) || coordinate.Y < 0) return false;
 
         var allXCoordinates =
             Enumerable.Range(coordinate.X, element.Dimension)
@@ -44,16 +45,5 @@ public class MapElementPlacer : IMapElementPlacer
 
         return map[coordinate.X, coordinate.Y] == null
                && allXCoordinates.Concat(allYCoordinates).All(c => map[c.X, c.Y] == null);
-    }
-
-    public void PlaceElement(MapElement element, string?[,] map, Coordinate coordinate)
-    {
-        for (int i = 0; i < element.Representation.GetLength(0); i++)
-        {
-            for (int j = 0; j < element.Representation.GetLength(1); j++)
-            {
-                map[coordinate.X + i, coordinate.Y + j] = element.Representation[i, j];
-            }
-        }
     }
 }

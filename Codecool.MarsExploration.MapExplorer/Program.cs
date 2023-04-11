@@ -2,14 +2,13 @@
 
 namespace Codecool.MarsExploration.MapExplorer;
 
-class Program
+internal class Program
 {
     private static readonly string WorkDir = AppDomain.CurrentDomain.BaseDirectory;
 
     public static void Main(string[] args)
     {
-        string mapFile = $@"{WorkDir}\Resources\exploration-0.map";
-        Coordinate landingSpot = new Coordinate(6, 6);
-
+        var mapFile = $@"{WorkDir}\Resources\exploration-0.map";
+        var landingSpot = new Coordinate(6, 6);
     }
 }

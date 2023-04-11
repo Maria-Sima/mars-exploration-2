@@ -41,13 +41,10 @@ internal class Program
 
         foreach (var cnt in Enumerable.Range(0, count))
         {
-            string outputFile = @$"{WorkDir}\exploration-{cnt}.map";
+            var outputFile = @$"{WorkDir}\exploration-{cnt}.map";
             var map = mapGenerator.Generate(mapConfig);
 
-            if (map.SuccessfullyGenerated)
-            {
-                mapFileWriter.WriteMapFile(map, outputFile);
-            }
+            if (map.SuccessfullyGenerated) mapFileWriter.WriteMapFile(map, outputFile);
         }
     }
 
@@ -61,23 +58,23 @@ internal class Program
         var mountainsCfg = new MapElementConfiguration(mountainSymbol, "mountain", new[]
         {
             new ElementToSize(2, 20),
-            new ElementToSize(1, 30),
+            new ElementToSize(1, 30)
         }, 3);
 
         var pitsCfg = new MapElementConfiguration(pitSymbol, "pit", new[]
         {
             new ElementToSize(2, 10),
-            new ElementToSize(1, 20),
+            new ElementToSize(1, 20)
         }, 10);
 
         var mineralsCfg = new MapElementConfiguration(mineralSymbol, "mineral", new[]
         {
-            new ElementToSize(10, 1),
+            new ElementToSize(10, 1)
         }, 0, mountainSymbol);
 
         var waterCfg = new MapElementConfiguration(waterSymbol, "water", new[]
         {
-            new ElementToSize(10, 1),
+            new ElementToSize(10, 1)
         }, 0, pitSymbol);
 
         List<MapElementConfiguration> elementsCfg = new() { mountainsCfg, pitsCfg, mineralsCfg, waterCfg };

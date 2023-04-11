@@ -13,7 +13,10 @@ public class MapConfigurationValidator : IMapConfigurationValidator
         return elementSquares < maximumElementSquares;
     }
 
-    private static double CalculateTotalSquares(MapConfiguration mapConfig) => Math.Pow(mapConfig.MapSize, 2);
+    private static double CalculateTotalSquares(MapConfiguration mapConfig)
+    {
+        return Math.Pow(mapConfig.MapSize, 2);
+    }
 
     private static int CalculateElementSquares(MapConfiguration mapConfig)
     {

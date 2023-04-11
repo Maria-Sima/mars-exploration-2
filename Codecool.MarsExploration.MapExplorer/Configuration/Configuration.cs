@@ -4,9 +4,8 @@ namespace Codecool.MarsExploration.MapExplorer.Configuration;
 
 public record Configuration
 {
-	public string filePath;
-	public Coordinate LandingCoordinate;
-	public IEnumerable<string> ResourceSymbols;
-	public int TimeoutSteps;
-
-};
+    public string filePath;
+    public Coordinate LandingCoordinate;
+    public IEnumerable<string> ResourceSymbols;
+    public int TimeoutSteps;
+}
