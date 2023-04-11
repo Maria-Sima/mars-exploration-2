@@ -1,0 +1,34 @@
+using Codecool.MarsExploration.MapGenerator.MapElements.Model;
+
+namespace Codecool.MarsExploration.MapExplorer.MapLoader;
+
+public class MapLoader:IMapLoader
+{
+	public Map Load(string mapFile)
+	{
+		if (!File.Exists(mapFile))
+		{
+			throw new FileNotFoundException($"File {mapFile} does not exist.");
+		}
+
+		var lines = File.ReadAllLines(mapFile);
+		var map = new string?[lines.Length, lines[0].Length];
+
+		for (int i = 0; i < lines.Length; i++)
+		{
+			for (int j = 0; j < lines[i].Length; j++)
+			{
+				if (lines[i][j] == ' ')
+				{
+					map[i, j] = null;
+				}
+				else
+				{
+					map[i, j] = lines[i][j].ToString();
+				}
+			}
+		}
+
+		return new Map(map, SuccessfullyGenerated: true);
+	}
+}
