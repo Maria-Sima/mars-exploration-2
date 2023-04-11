@@ -3,4 +3,14 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.ConfigurationValidatorTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb7640ac_002Dc50a_002D44b3_002Dbd29_002De2303d452172/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dae8b353_002D45aa_002D4971_002Dbe54_002D9e655aa5680c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1 #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::71D7A348-DFCC-4D61-BF8D-4275C1A27180::net6.0::MarsExploration2Test.RoverDeployerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
