@@ -14,4 +14,5 @@ public record SimulationContext
     public Coordinate SpaceshipCoordinate;
     public int Steps;
     public int TimeOutSteps;
+    public int NecesaryResources;
 }

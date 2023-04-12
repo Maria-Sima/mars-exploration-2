@@ -14,9 +14,9 @@ public class MapLoader : IMapLoader
         for (var i = 0; i < lines.Length; i++)
         for (var j = 0; j < lines[i].Length; j++)
             if (lines[i][j] == ' ')
-                map[i, j] = null;
-            else
-                map[i, j] = lines[i][j].ToString();
+                map[i, j] = " ";
+            else{
+                map[i, j] = lines[i][j].ToString();}
 
         return new Map(map, true);
     }
