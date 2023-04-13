@@ -57,15 +57,18 @@ public class ExplorationSimulator
         ExplorationOutcome explorationOutcome;
         while (context.Steps <= context.TimeOutSteps)
         {
-            PossibleMoves = new List<Coordinate>();
+            
             Scan(context.map, rover, _configuration);
             Move(rover, _configuration, context.map);
             Logger(logger, context, rover);
             Analysis(context);
-            SeeMap(context.map);
+            //SeeMap(context.map);
             context.Steps++;
             Console.ReadKey();
         }
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"ExploratinOutcome Reached {context.ExplorationOutcome};  \n Found {_rover.WaterCoordinates.Count } water and {_rover.MineralCoordinates.Count} out of {context.NecesaryResources} needed");
     }
 
     private void SeeMap(Map map)
@@ -77,12 +80,12 @@ public class ExplorationSimulator
             {
                 if (i == _rover.CurrentPosition.X && j == _rover.CurrentPosition.Y)
                 {
-                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write(map.Representation[i, j]);
                     
                 }
-
-                Console.Write(map.Representation[i, j]);
+                
             }
 
             Console.WriteLine();
@@ -91,9 +94,42 @@ public class ExplorationSimulator
 
     private void Move(Rover rover, Configuration.Configuration configuration, Map map)
     {
-        Random rnd = new Random();
+        PossibleMoves = new List<Coordinate>();
+        var x = rover.CurrentPosition.X;
+        var y = rover.CurrentPosition.Y;
+        var startX = Math.Max(x-1 , 0);
+        var startY = Math.Max(y-1 , 0);
+        var endX = Math.Min(x+1 , map.Dimension); 
+        var endY = Math.Min(y+1 , map.Dimension);
+        
+        for (int i =startX ; i < endX; i++)
+        {
+            
+            for (int j = startY; j < endY; j++)
+            {
+                
+                if (map.Representation[i, j] == " " && !ExploredLocations.Contains(new Coordinate(i, j)))
+                {
+                    
+                    PossibleMoves.Add(new Coordinate(i,j));
+                }
+            }
+        }
 
-        rover.CurrentPosition = PossibleMoves[rnd.Next(0, PossibleMoves.Count)];
+        var rnd = new Random();
+            if (PossibleMoves.Count>0)
+                {
+                    var NewPosition = PossibleMoves[rnd.Next(0,PossibleMoves.Count)];
+                            _rover.CurrentPosition = NewPosition;
+                            ExploredLocations.Add(NewPosition);
+                }
+       else if (PossibleMoves.Count==0)
+        {
+            _rover.CurrentPosition = ExploredLocations[rnd.Next(0,ExploredLocations.Count)];
+        }
+
+    
+        
     }
 
     public void Scan(Map map, Rover rover, Configuration.Configuration configuration)
@@ -102,7 +138,7 @@ public class ExplorationSimulator
         var y = rover.CurrentPosition.Y;
         var startX = Math.Max(x - rover.Sight, 0);
         var startY = Math.Max(y - rover.Sight, 0);
-        var endX = Math.Min(x + rover.Sight, map.Dimension);
+        var endX = Math.Min(x + rover.Sight, map.Dimension); 
         var endY = Math.Min(y + rover.Sight, map.Dimension);
         for (var i = startX; i < endX; i++)
         {
@@ -120,25 +156,19 @@ public class ExplorationSimulator
                     rover.MineralCoordinates.Add(new Coordinate(i, j));
                     continue;
                 }
-
-
-                if (map.Representation[i, j] == " ")
-                {
-                    PossibleMoves.Add(new Coordinate(i, j));
-                }
+                
             }
         }
     }
 
     private void Logger(ILogger consoleLogger, SimulationContext context, Rover rover)
     {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         consoleLogger.Log($"STEP{context.Steps}; EVENT position; UNIT {rover.Id}; POSITION [{rover.CurrentPosition}]");
     }
 
     private ExplorationOutcome Analysis(SimulationContext context)
     {
-        Console.WriteLine(_rover.MineralCoordinates.Count());
-        Console.WriteLine(_rover.WaterCoordinates.Count());
         if (context.Steps <= context.TimeOutSteps && _rover.MineralCoordinates.Count + _rover.WaterCoordinates.Count >=
             context.NecesaryResources)
         {
